@@ -5,15 +5,8 @@ import (
 	"testing"
 )
 
-func TestNew(t *testing.T) {
-	ref := Vector{10, 20, 30}
-	if v := New(10, 20, 30); !v.Equal(ref, 10e-12) {
-		t.Errorf("new error, expected %s, got %s", ref, v)
-	}
-}
-
 func TestAdd(t *testing.T) {
-	a, b := New(10, 10, 50), New(0, 10, -20)
+	a, b := Vector{10, 10, 50}, Vector{0, 10, -20}
 
 	ref := Vector{10, 20, 30}
 	if v := a.Add(b); !v.Equal(ref, 10e-12) {
@@ -22,7 +15,7 @@ func TestAdd(t *testing.T) {
 }
 
 func TestSub(t *testing.T) {
-	a, b := New(10, 10, 50), New(0, 10, -20)
+	a, b := Vector{10, 10, 50}, Vector{0, 10, -20}
 
 	ref := Vector{10, 0, 70}
 	if v := a.Sub(b); !v.Equal(ref, 10e-12) {
@@ -31,7 +24,7 @@ func TestSub(t *testing.T) {
 }
 
 func TestNeg(t *testing.T) {
-	a := New(10, 20, -30)
+	a := Vector{10, 20, -30}
 
 	ref := Vector{-10, -20, 30}
 	if v := a.Neg(); !v.Equal(ref, 10e-12) {
